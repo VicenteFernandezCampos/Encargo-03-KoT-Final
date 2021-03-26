@@ -40,7 +40,32 @@ public class Cangrejo_Movement : MonoBehaviour
     {
         if (abajo = true)
         {
-
+            MoverIzq();
         }
+
+        if (arriba = true)
+        {
+            MoverDer();
+        }
+
+        if (izquierda = true)
+        {
+            MoverArriba();
+        }
+
+        if (derecha = true)
+        {
+            MoverAbajo();
+        }
+    }
+
+    void MoverIzq()
+    {
+        Transform.Translate(Vector3.left * Time.deltaTime * velocidad);
+    }
+
+    void MoverDer()
+    {
+        Transform.Translate(Vector3.right * Time.deltaTime * velocidad);
     }
 }

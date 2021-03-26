@@ -35,4 +35,12 @@ public class Cangrejo_Movement : MonoBehaviour
             derecha = true;
         }
     }
+
+    void Update()
+    {
+        if (abajo = true)
+        {
+
+        }
+    }
 }

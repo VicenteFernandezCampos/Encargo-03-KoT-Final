@@ -4,77 +4,83 @@ using UnityEngine;
 
 public class Cangrejo : MonoBehaviour
 {
-    public Transform transform;
+    public Transform theTransform;
     public bool izquierda;
     public bool derecha;
     public bool arriba;
     public bool abajo;
-    public Collider collider;
+    public Collider theCollider;
     public int velocidad;
 
-    private void OnTrigger(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag "Suelo")
+        if (other.gameObject.CompareTag("Suelo"))
         {
             abajo = true;
         }
 
-        if (other.gameObject.CompareTag "ParedIzq")
+        if (other.gameObject.CompareTag("ParedIzq"))
         {
             izquierda = true;
+
         }
 
-        if (other.gameObject.CompareTag "Techo")
+        if (other.gameObject.CompareTag("Techo"))
         {
             arriba = true;
         }
 
-        if (other.gameObject.CompareTag "ParedDer")
+        if (other.gameObject.CompareTag("ParedDer"))
         {
             derecha = true;
+
         }
     }
 
     void Update()
     {
-        if (abajo = true)
+        if (abajo == true)
         {
             MoverIzq();
+            derecha = false;
         }
 
-        if (arriba = true)
+        if (arriba == true)
         {
             MoverDer();
+            izquierda = false;
         }
 
-        if (izquierda = true)
+        if (izquierda == true)
         {
             MoverArriba();
+            abajo = false;
         }
 
-        if (derecha = true)
+        if (derecha == true)
         {
             MoverAbajo();
+            arriba = false;
         }
     }
 
     void MoverIzq()
     {
-        Transform.Translate(Vector3.left * Time.deltaTime * velocidad);
+        theTransform.Translate(Vector3.left * Time.deltaTime * velocidad);
     }
 
     void MoverDer()
     {
-        Transform.Translate(Vector3.right * Time.deltaTime * velocidad);
+        theTransform.Translate(Vector3.right * Time.deltaTime * velocidad);
     }
 
     void MoverArriba()
     {
-        Transform.Translate(Vector3.up * Time.deltaTime * velocidad);
+        theTransform.Translate(Vector3.up * Time.deltaTime * velocidad);
     }
 
     void MoverAbajo()
     {
-        Transform.Translate(Vector3.down * Time.deltaTime * velocidad);
+        theTransform.Translate(Vector3.down * Time.deltaTime * velocidad);
     }
 }

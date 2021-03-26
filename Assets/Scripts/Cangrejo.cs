@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Cangrejo_Movement : MonoBehaviour
+public class Cangrejo : MonoBehaviour
 {
     public Transform transform;
     public bool izquierda;
@@ -13,9 +12,9 @@ public class Cangrejo_Movement : MonoBehaviour
     public Collider collider;
     public int velocidad;
 
-    private void OnTrigger (Collider other)
+    private void OnTrigger(Collider other)
     {
-        if (other.gameObject.CompareTag "Suelo" )
+        if (other.gameObject.CompareTag "Suelo")
         {
             abajo = true;
         }
